@@ -43,6 +43,26 @@ services:
     networks:
       - ticket-network
 
+  booking-service:
+    build:
+      context: ../../booking-service
+    container_name: booking-service
+    depends_on:
+      - mysql
+      - kafka
+    environment:
+      DB_HOST: mysql
+      DB_USERNAME: appuser
+      DB_PASSWORD: apppassword
+      JWT_SECRET: bookingServiceJwtSecretKey_32CharsMinimum_2026
+      JWT_EXPIRATION: 3600000
+      KAFKA_SERVERS: kafka:9092
+      SERVER_PORT: 8083
+    ports:
+      - "8083:8083"
+    networks:
+      - ticket-network
+
 volumes:
   mysql_data:
 
