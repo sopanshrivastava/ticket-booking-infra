@@ -108,7 +108,7 @@ services:
     depends_on:
       - kafka
     environment:
-      MAIL_HOST: smtp.example.com
+      MAIL_HOST: smtp.gmail.com
       MAIL_PORT: 587
       MAIL_USERNAME: test@gmail.com
       MAIL_PASSWORD: testpass
