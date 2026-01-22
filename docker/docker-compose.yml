@@ -74,8 +74,6 @@ services:
       DB_USERNAME: appuser
       DB_PASSWORD: apppassword
       SERVER_PORT: 8082
-      USER_SERVICE_URL: http://user-service:8081/user-service
-      MOVIE_SERVICE_URL: http://movie-service:8082/movie-service
     ports:
       - "8082:8082"
     networks:
@@ -96,6 +94,8 @@ services:
       JWT_EXPIRATION: 3600000
       KAFKA_SERVERS: kafka:9092
       SERVER_PORT: 8083
+      USER_SERVICE_URL: http://user-service:8081/user-service
+      MOVIE_SERVICE_URL: http://movie-service:8082/movie-service
     ports:
       - "8083:8083"
     networks:
