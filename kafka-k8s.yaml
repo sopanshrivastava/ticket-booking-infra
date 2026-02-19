@@ -12,6 +12,8 @@ spec:
       labels:
         app: kafka
     spec:
+      securityContext:
+        fsGroup: 1000
       containers:
         - name: kafka
           image: confluentinc/cp-kafka:7.4.0
@@ -44,6 +46,9 @@ spec:
 
             - name: KAFKA_TRANSACTION_STATE_LOG_MIN_ISR
               value: "1"
+
+            - name: KAFKA_LOG_DIRS
+              value: "/var/lib/kafka/data"
 
 ---
 apiVersion: v1
